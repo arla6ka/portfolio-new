@@ -5,27 +5,35 @@ import { ProjectProps } from './types';
 import NavLink from './NavLink';
 import AnimatedText from './AnimatedText';
 import React from 'react';
+import SmoothScroll from './SmoothScroll';
 
 const ProjectCard = dynamic(() => import('./ProjectCard'));
 
 const projects = [
     { imageUrl: '/images/vindex.png', title: 'Project 1', subtitle: 'Description 1' },
-    { imageUrl: '/images/Group34687.png', title: 'Project 2', subtitle: 'Description 2' },
+    { imageUrl: '/images/jn.png', title: 'Project 2', subtitle: 'Description 2' },
     { imageUrl: '/images/example2.jpg', title: 'Project 2', subtitle: 'Description 2' },
 ];
+const Noise = () => {
+  return (
+    <div
+      className="absolute inset-0 w-full h-full scale-[1.2] transform opacity-10 [mask-image:radial-gradient(#fff,transparent,75%)]"
+      style={{
+        backgroundImage: "url(/noise.webp)",
+        backgroundSize: "30%",
+      }}
+    />
+  );
+};
 
 const Portfolio: React.FC = () => {
   // Добавляем smooth scroll при монтировании компонента
-  React.useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-    return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
-  }, []);
+  
 
   return (
-    <main className="flex overflow-hidden flex-col py-8 bg-neutral-900">
-      <header className="fixed top-8 left-1/2 transform -translate-x-1/2 flex justify-center items-center z-50">
+    <main id="smooth-scroll" className="flex overflow-hidden flex-col py-8 bg-neutral-900">
+      <SmoothScroll />
+      <header className="header-fixed absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center z-5">
         <motion.button 
           className="flex overflow-hidden gap-2 justify-center items-center p-3 leading-none text-center border border-orange-50 border-solid bg-white bg-opacity-20 rounded-[90px] shadow-[0px_4px_4px_rgba(9,9,9,0.26)] relative group"
           whileHover={{ 
@@ -111,6 +119,7 @@ const Portfolio: React.FC = () => {
       >
         <div className="mt-24 max-md:mt-10 max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col">
+            
             {[0, 1, 2].map((columnIndex) => (
               <div key={columnIndex} className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
                 {projects.slice(columnIndex * 3, (columnIndex + 1) * 3).map((project, index) => (
@@ -123,19 +132,26 @@ const Portfolio: React.FC = () => {
       </motion.section>
 
       <style jsx global>{`
-        ::-webkit-scrollbar {
-          width: 8px;
-          background-color: #171717;
+        body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100vh;
+          overflow: hidden;
         }
-        ::-webkit-scrollbar-thumb {
-          background-color: #171717;
+
+        .scrollbar-track {
+          background: #171717 !important;
+        }
+
+        .scrollbar-thumb {
+          background: #454545 !important;
           border-radius: 4px;
         }
-        
-        /* Добавляем плавный скролл для всего сайта */
-        html {
-          scroll-behavior: smooth;
-          overflow-y: overlay;
+
+        #smooth-scroll {
+          width: 100%;
+          height: 100vh;
         }
       `}</style>
     </main>

@@ -80,21 +80,7 @@ export const BinaryEngineer = () => {
           fontSize: '105px'
         }}
       >
-        <AnimatePresence>
-          {isHovered && (
-            <motion.div
-              className="absolute inset-0 blur-2xl -z-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.15 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              style={{
-                background: '#00ff00',
-                filter: 'blur(30px)',
-              }}
-            />
-          )}
-        </AnimatePresence>
+        
 
         <span ref={ref} className="relative z-10" style={{ color: '#fef4e4' }}>
           engineer
