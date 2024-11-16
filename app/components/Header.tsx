@@ -1,3 +1,4 @@
+// components/Header.tsx
 "use client";
 import React, { useRef, useLayoutEffect } from 'react';
 import styles from './styles.module.css';
@@ -6,17 +7,7 @@ interface NavLinkProps {
   label: string;
 }
 
-const AnchorUnderline = ({ 
-  speed = 0.5, 
-  children, 
-  className = '', 
-  ...rest 
-}: { 
-  speed?: number;
-  children: React.ReactNode;
-  className?: string;
-  [key: string]: any;
-}) => {
+const AnimatedNavLink: React.FC<NavLinkProps> = ({ label }) => {
   const invalidated = useRef(true);
   const raf = useRef<number>();
   const timeout = useRef<NodeJS.Timeout>();
@@ -27,18 +18,12 @@ const AnchorUnderline = ({
 
   const getComputedParams = () => {
     if (invalidated.current === false) return;
-    if (!speed) {
-      const elStyle = window.getComputedStyle(elRef.current);
-      const appliedDuration = parseFloat(elStyle.getPropertyValue('--underline-duration'));
-      duration.current = appliedDuration;
-    } else {
-      const elContent = elRef.current.textContent;
-      const elLength = elContent?.length ?? 1;
-      const animTime = Math.min(Math.max(0.4, elLength / (speed * 100)), 1.4);
-      const appliedDuration = animTime * speed;
-      elRef.current.style.setProperty('--underline-duration', `${appliedDuration}s`);
-      duration.current = appliedDuration;
-    }
+    const elContent = elRef.current.textContent;
+    const elLength = elContent?.length ?? 1;
+    const animTime = Math.min(Math.max(0.4, elLength / (0.6 * 100)), 1.4);
+    const appliedDuration = animTime * 0.6;
+    elRef.current.style.setProperty('--underline-duration', `${appliedDuration}s`);
+    duration.current = appliedDuration;
   };
 
   const animateIn = () => {
@@ -91,25 +76,32 @@ const AnchorUnderline = ({
   return (
     <span
       ref={elRef}
-      className={`${styles.anchor_text} ${className}`}
+      className={`${styles.anchor_text} text-[#fef4e4] cursor-pointer`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      {...rest}
     >
-      {children}
+      {label}
     </span>
   );
 };
 
-const NavLink: React.FC<NavLinkProps> = ({ label }) => {
+const Header = () => {
   return (
-    <AnchorUnderline 
-      speed={0.6}
-      className="text-[#fef4e4] cursor-pointer"
-    >
-      {label}
-    </AnchorUnderline>
+    <header className="fixed top-0 left-0 right-0 z-30 bg-neutral-900">
+      <div className="flex justify-between items-center px-16 py-6 text-[16px] leading-none border-b border-zinc-500/30">
+        <h1 
+          className="text-[#fef4e4]"
+          style={{ fontFamily: '"Overused Grotesk", sans-serif', fontWeight: 400 }}
+        >
+          Arlan <span className="">@Design Engineer</span>
+        </h1>
+        <nav className="flex gap-6 items-center">
+          <AnimatedNavLink label="Resume" />
+          <AnimatedNavLink label="Linkedin" />
+        </nav>
+      </div>
+    </header>
   );
 };
 
-export default NavLink;
+export default Header;

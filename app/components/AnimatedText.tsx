@@ -8,7 +8,7 @@ import SparklesText from "../../components/ui/sparkles-text";
 export const GlowingDesigner = () => {
     const [isHovered, setIsHovered] = useState(false);
   
-    const baseStyles = "tracking-wide font-['Eksell_Display_TRIAL_Large'] font-thin text-[105px] text-[#fef4e4] leading-[120px] mr-0";
+    const baseStyles = "tracking-medium font-['POI_Carbonic_Trial_Regular'] font-thin text-[105px] text-[#fef4e4] mr-0";
   
     return (
       <div
@@ -17,7 +17,7 @@ export const GlowingDesigner = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         {isHovered ? (
-          <div className="flex items-center h-[120px]">
+          <div className="flex items-center h-[100px]">
             <SparklesText 
               text="designer"
               colors={{
@@ -28,7 +28,7 @@ export const GlowingDesigner = () => {
             />
           </div>
         ) : (
-          <div className="flex items-center h-[120px]">
+          <div className="flex items-center h-[100px]">
             <span className={baseStyles}>
               designer
             </span>
@@ -45,7 +45,7 @@ export const BinaryEngineer = () => {
   
   const { ref, replay } = useScramble({
     text: 'engineer',
-    speed: 0.3,
+    speed: 0.2,
     tick: 4,
     step: 6,
     scramble: 10,
@@ -73,16 +73,16 @@ export const BinaryEngineer = () => {
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className="relative"
+        className="relative "
         style={{
-          fontFamily: '"Geist Mono", sans-serif',
+          fontFamily: '"Geist Mono Medium", sans-serif',
           fontWeight: 400,
           fontSize: '105px'
         }}
       >
         
 
-        <span ref={ref} className="relative z-10" style={{ color: '#fef4e4' }}>
+        <span ref={ref} className="relative tracking-tight z-10" style={{ color: '#fef4e4' }}>
           engineer
         </span>
       </motion.div>
@@ -98,7 +98,7 @@ const AnimatedText = () => {
           fontFamily: '"Overused Grotesk", sans-serif', 
           fontWeight: 500 
         }} 
-        className="self-center w-full leading-[120px] max-w-[500px] text-[110px] tracking-[normal]"
+        className="self-center w-full leading-[120px] max-w-[500px] text-[110px] tracking-medium"
       >
         hello! I am Arlan <br />
         <GlowingDesigner />{" "}
