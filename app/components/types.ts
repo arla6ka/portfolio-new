@@ -4,6 +4,7 @@ export interface ProjectProps {
   imageUrl: string;
   title: string;
   subtitle: string;
+  slug: string;  // Add this
   aspectRatio?: number;
 }
   

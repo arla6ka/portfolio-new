@@ -1,21 +1,22 @@
+// components/NavLink.tsx
 "use client";
 import React, { useRef, useLayoutEffect } from 'react';
 import styles from './styles.module.css';
 
-interface NavLinkProps {
-  label: string;
-}
-
-const AnchorUnderline = ({ 
-  speed = 0.5, 
-  children, 
-  className = '', 
-  ...rest 
-}: { 
+interface AnchorUnderlineProps {
   speed?: number;
   children: React.ReactNode;
   className?: string;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   [key: string]: any;
+}
+
+export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({ 
+  speed = 0.5, 
+  children, 
+  className = '', 
+  onClick,
+  ...rest 
 }) => {
   const invalidated = useRef(true);
   const raf = useRef<number>();
@@ -27,18 +28,12 @@ const AnchorUnderline = ({
 
   const getComputedParams = () => {
     if (invalidated.current === false) return;
-    if (!speed) {
-      const elStyle = window.getComputedStyle(elRef.current);
-      const appliedDuration = parseFloat(elStyle.getPropertyValue('--underline-duration'));
-      duration.current = appliedDuration;
-    } else {
-      const elContent = elRef.current.textContent;
-      const elLength = elContent?.length ?? 1;
-      const animTime = Math.min(Math.max(0.4, elLength / (speed * 100)), 1.4);
-      const appliedDuration = animTime * speed;
-      elRef.current.style.setProperty('--underline-duration', `${appliedDuration}s`);
-      duration.current = appliedDuration;
-    }
+    const elContent = elRef.current.textContent;
+    const elLength = elContent?.length ?? 1;
+    const animTime = Math.min(Math.max(0.4, elLength / (speed * 100)), 1.4);
+    const appliedDuration = animTime * speed;
+    elRef.current.style.setProperty('--underline-duration', `${appliedDuration}s`);
+    duration.current = appliedDuration;
   };
 
   const animateIn = () => {
@@ -94,6 +89,7 @@ const AnchorUnderline = ({
       className={`${styles.anchor_text} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       {...rest}
     >
       {children}
@@ -101,15 +97,4 @@ const AnchorUnderline = ({
   );
 };
 
-const NavLink: React.FC<NavLinkProps> = ({ label }) => {
-  return (
-    <AnchorUnderline 
-      speed={0.6}
-      className="text-[#fef4e4] cursor-pointer"
-    >
-      {label}
-    </AnchorUnderline>
-  );
-};
-
-export default NavLink;
+export default AnchorUnderline;
