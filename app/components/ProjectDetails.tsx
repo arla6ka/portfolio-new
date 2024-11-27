@@ -1,115 +1,191 @@
-// components/ProjectDetails.tsx
-"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useScramble } from 'use-scramble';
-
-interface TechnologyProps {
-  name: string;
-  index: number;
-}
-
-const Technology: React.FC<TechnologyProps> = ({ name, index }) => {
-  const { ref, replay } = useScramble({
-    text: name,
-    speed: 0.6,
-    tick: 8,
-    step: 3,
-    scramble: 10,
-    seed: 2,
-    chance: 0.8,
-    overflow: true,
-    range: [48, 122],
-    playOnMount: false
-  });
-
-  return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.5,
-        delay: index * 0.1 
-      }}
-      onMouseEnter={() => replay()}
-      className="block text-zinc-500 mb-4 uppercase tracking-wider cursor-pointer"
-      style={{ fontFamily: '"Consolas", monospace' }}
-    >
-      {name}
-    </motion.span>
-  );
-};
+import Link from 'next/link';
+import CallToAction from './CallToAction';
 
 interface ProjectDetailsProps {
   projectName: string;
   projectDescription: string;
   technologies: string[];
   imageUrl: string;
+  projectLink?: string;
+  githubLink?: string;
+  year?: string;
+  role?: string;
 }
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   projectName,
   projectDescription,
   technologies,
-  imageUrl
+  imageUrl,
+  projectLink,
+  githubLink,
+  year = "2024",
+  role = "Design & Development"
 }) => {
-  const consolasStyle = { fontFamily: '"Consolas", monospace' };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="w-full pt-32 pb-16" // Added pb-32 for bottom spacing
-      style={consolasStyle}
-    >
-      <div className="px-16 max-w-full">
-        <div className="w-full bg-white/20 overflow-hidden mb-">
-          <motion.img
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.6 }}
-            src={imageUrl}
-            alt={projectName}
-            className="w-full h-auto object-cover"
-          />
-        </div>
-
-        <div className="grid grid-cols-12 gap-8 mt-16 "> {/* Added mb-16 for content spacing */}
-          <div className="col-span-3">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-[#fef4e4] text-2xl mb-8 uppercase tracking-wider"
-              style={consolasStyle}
+    <>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="w-full pt-32"
+      >
+        <div className="px-16">
+          {/* Project Title Section */}
+          <motion.div variants={itemVariants} className="mb-32">
+            <h1 
+              className="text-[130px] text-[#fef4e4] leading-[1.1] tracking-[-0.02em] mb-20"
+              style={{ fontFamily: '"Overused Grotesk", sans-serif', fontWeight: 500 }}
             >
               {projectName}
-            </motion.h1>
-            
-            <div className="space-y-">
-              {technologies.map((tech, index) => (
-                <Technology 
-                  key={tech} 
-                  name={tech} 
-                  index={index}
-                />
-              ))}
-            </div>
-          </div>
+            </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="col-span-9 text-[#fef4e4] text-lg leading-relaxed whitespace-pre-line"
-            style={consolasStyle}
-          >
-            {projectDescription}
+            <div className="flex gap-32">
+              <div className="group">
+                <p 
+                  className="text-zinc-500 mb-4 uppercase tracking-wider text-sm"
+                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                >
+                  ROLE
+                </p>
+                <p 
+                  className="text-[#fef4e4] text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
+                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                >
+                  {role}
+                </p>
+              </div>
+              <div className="group">
+                <p 
+                  className="text-zinc-500 mb-4 uppercase tracking-wider text-sm"
+                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                >
+                  YEAR
+                </p>
+                <p 
+                  className="text-[#fef4e4] text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
+                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                >
+                  {year}
+                </p>
+              </div>
+            </div>
           </motion.div>
+
+          {/* Project Image with enhanced hover effects */}
+          <motion.div variants={itemVariants} className="w-full mb-32">
+            <div className="relative group w-full aspect-video overflow-hidden rounded-lg">
+              <motion.img
+                src={imageUrl}
+                alt={projectName}
+                className="w-full h-full object-cover transition-all duration-700
+                         group-hover:scale-[1.02] group-hover:brightness-110"
+              />
+              <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-neutral-900/0 transition-all duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
+            </div>
+          </motion.div>
+
+          {/* Project Content with refined grid */}
+          <div className="grid grid-cols-12 gap-24 mb-32">
+            {/* Description with enhanced typography */}
+            <motion.div variants={itemVariants} className="col-span-8">
+              <p 
+                className="text-2xl leading-relaxed text-[#fef4e4]/80 mb-16"
+                style={{ fontFamily: '"Geist Mono", monospace' }}
+              >
+                {projectDescription}
+              </p>
+
+              <div className="flex gap-6">
+                {projectLink && (
+                  <Link 
+                    href={projectLink}
+                    target="_blank"
+                    className="group relative py-4 px-8 bg-[#fef4e4] text-neutral-900 rounded-lg 
+                             overflow-hidden transition-all duration-300
+                             text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-[#fef4e4]/10"
+                    style={{ fontFamily: '"Geist Mono", monospace' }}
+                  >
+                    <span className="relative z-10">View Project</span>
+                    <div className="absolute inset-0 bg-[#fef4e4]/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  </Link>
+                )}
+                {githubLink && (
+                  <Link 
+                    href={githubLink}
+                    target="_blank"
+                    className="group relative py-4 px-8 border border-[#fef4e4]/20 text-[#fef4e4] rounded-lg
+                             overflow-hidden transition-all duration-300
+                             text-sm uppercase tracking-wider hover:border-[#fef4e4]/40"
+                    style={{ fontFamily: '"Geist Mono", monospace' }}
+                  >
+                    <span className="relative z-10 group-hover:text-[#fef4e4]">Source Code</span>
+                    <div className="absolute inset-0 bg-[#fef4e4]/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  </Link>
+                )}
+              </div>
+            </motion.div>
+
+            {/* Technologies with hover effects */}
+            <motion.div variants={itemVariants} className="col-span-4">
+              <h3 
+                className="text-zinc-500 uppercase tracking-wider mb-8 text-sm"
+                style={{ fontFamily: '"Geist Mono", monospace' }}
+              >
+                Technologies
+              </h3>
+              <div className="flex flex-col gap-5">
+                {technologies.map((tech) => (
+                  <span 
+                    key={tech}
+                    className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 text-lg"
+                    style={{ fontFamily: '"Geist Mono", monospace' }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+
+      {/* Enhanced CallToAction integration */}
+      <motion.div
+        variants={itemVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <CallToAction />
+      </motion.div>
+    </>
   );
 };
 

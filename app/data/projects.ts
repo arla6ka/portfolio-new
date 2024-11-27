@@ -7,6 +7,10 @@ export interface Project {
     description: string;
     technologies: string[];
     imageUrl: string;
+    liveUrl?: string;
+    githubUrl?: string;
+    year?: string;
+    role?: string;
   }
   
   export const projects: Project[] = [

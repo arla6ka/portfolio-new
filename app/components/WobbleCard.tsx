@@ -24,8 +24,8 @@ export const WobbleCard: React.FC<WobbleCardProps> = ({
     const { clientX, clientY } = event;
     const { left, top, width, height } = event.currentTarget.getBoundingClientRect();
     
-    const x = (clientX - left - width / 2) / 40;
-    const y = (clientY - top - height / 2) / 40;
+    const x = (clientX - left - width / 2) / 50;
+    const y = (clientY - top - height / 2) / 50;
     
     setMousePosition({ x, y });
   }, []);
@@ -40,7 +40,7 @@ export const WobbleCard: React.FC<WobbleCardProps> = ({
         setMousePosition({ x: 0, y: 0 });
       }}
       animate={{
-        scale: isHovering ? 1.02 : 1,
+        scale: isHovering ? 1.01 : 1,
         transition: { duration: 0.2 }
       }}
       style={{

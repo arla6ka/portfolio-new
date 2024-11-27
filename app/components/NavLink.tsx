@@ -1,5 +1,3 @@
-// components/NavLink.tsx
-"use client";
 import React, { useRef, useLayoutEffect } from 'react';
 import styles from './styles.module.css';
 
@@ -97,4 +95,16 @@ export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({
   );
 };
 
-export default AnchorUnderline;
+interface NavLinkProps {
+  label: string;
+}
+
+export const AnimatedNavLink: React.FC<NavLinkProps> = ({ label }) => {
+  return (
+    <AnchorUnderline className="text-[#fef4e4] cursor-pointer">
+      {label}
+    </AnchorUnderline>
+  );
+};
+
+export default AnimatedNavLink;
