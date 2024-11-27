@@ -15,7 +15,8 @@ const ProjectHeader: React.FC = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/50 to-transparent pointer-events-none" />
 
-      <div className="flex justify-between items-center px-16 py-6 text-[16px] leading-none border-b border-zinc-500/10 relative">
+      <div className="flex justify-between items-center px-4 sm:px-8 md:px-16 py-4 sm:py-5 md:py-6 
+                    text-[14px] sm:text-[15px] md:text-[16px] leading-none border-b border-zinc-500/10 relative">
         {/* Back button with aligned arrow */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -26,7 +27,7 @@ const ProjectHeader: React.FC = () => {
           whileHover="hover"
         >
           <motion.span
-            className="text-[#fef4e4]/60 mb-[2px]"
+            className="text-[#fef4e4]/60 mb-[2px] text-[12px] sm:text-[14px] md:text-[16px]"
             variants={{
               hover: {
                 x: -4,
@@ -46,18 +47,21 @@ const ProjectHeader: React.FC = () => {
 
         {/* Navigation */}
         <motion.nav 
-          className="flex gap-8 items-center"
+          className="flex gap-4 sm:gap-6 md:gap-8 items-center"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <AnchorUnderline 
+            href="/resume"
             speed={0.6} 
             className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 cursor-pointer"
           >
             Resume
           </AnchorUnderline>
           <AnchorUnderline 
+            href="https://www.linkedin.com/in/arlanmarat/"
+            target="_blank"
             speed={0.6} 
             className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 cursor-pointer"
           >

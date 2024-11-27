@@ -5,7 +5,9 @@ interface AnchorUnderlineProps {
   speed?: number;
   children: React.ReactNode;
   className?: string;
-  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  href?: string;
+  target?: string;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
   [key: string]: any;
 }
 
@@ -13,6 +15,8 @@ export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({
   speed = 0.5, 
   children, 
   className = '', 
+  href,
+  target,
   onClick,
   ...rest 
 }) => {
@@ -22,7 +26,7 @@ export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({
   const duration = useRef(0.8);
   const transition = useRef('idle');
   const underline = useRef(false);
-  const elRef = useRef<HTMLSpanElement>(null!);
+  const elRef = useRef<HTMLAnchorElement>(null!);
 
   const getComputedParams = () => {
     if (invalidated.current === false) return;
@@ -82,8 +86,10 @@ export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({
   }, []);
 
   return (
-    <span
+    <a
       ref={elRef}
+      href={href}
+      target={target}
       className={`${styles.anchor_text} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -91,17 +97,23 @@ export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({
       {...rest}
     >
       {children}
-    </span>
+    </a>
   );
 };
 
 interface NavLinkProps {
   label: string;
+  href?: string;
+  target?: string;
 }
 
-export const AnimatedNavLink: React.FC<NavLinkProps> = ({ label }) => {
+export const AnimatedNavLink: React.FC<NavLinkProps> = ({ label, href, target }) => {
   return (
-    <AnchorUnderline className="text-[#fef4e4] cursor-pointer">
+    <AnchorUnderline 
+      href={href}
+      target={target}
+      className="text-[#fef4e4] cursor-pointer"
+    >
       {label}
     </AnchorUnderline>
   );

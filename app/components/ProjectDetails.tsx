@@ -7,7 +7,8 @@ interface ProjectDetailsProps {
   projectName: string;
   projectDescription: string;
   technologies: string[];
-  imageUrl: string;
+  imageUrl?: string;
+  videoUrl?: string;
   projectLink?: string;
   githubLink?: string;
   year?: string;
@@ -19,6 +20,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   projectDescription,
   technologies,
   imageUrl,
+  videoUrl,
   projectLink,
   githubLink,
   year = "2024",
@@ -53,28 +55,28 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="w-full pt-32"
+        className="w-full pt-20 sm:pt-24 md:pt-32"
       >
-        <div className="px-16">
+        <div className="px-5 sm:px-8 md:px-16">
           {/* Project Title Section */}
-          <motion.div variants={itemVariants} className="mb-32">
+          <motion.div variants={itemVariants} className="mb-16 sm:mb-20 md:mb-32">
             <h1 
-              className="text-[130px] text-[#fef4e4] leading-[1.1] tracking-[-0.02em] mb-20"
+              className="text-[42px] sm:text-[72px] md:text-[130px] text-[#fef4e4] leading-[1.1] tracking-[-0.02em] mb-10 sm:mb-16 md:mb-20"
               style={{ fontFamily: '"Overused Grotesk", sans-serif', fontWeight: 500 }}
             >
               {projectName}
             </h1>
 
-            <div className="flex gap-32">
+            <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 md:gap-32">
               <div className="group">
                 <p 
-                  className="text-zinc-500 mb-4 uppercase tracking-wider text-sm"
+                  className="text-zinc-500 mb-2 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
                   style={{ fontFamily: '"Geist Mono", monospace' }}
                 >
                   ROLE
                 </p>
                 <p 
-                  className="text-[#fef4e4] text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
+                  className="text-[#fef4e4] text-base sm:text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
                   style={{ fontFamily: '"Geist Mono", monospace' }}
                 >
                   {role}
@@ -82,13 +84,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               </div>
               <div className="group">
                 <p 
-                  className="text-zinc-500 mb-4 uppercase tracking-wider text-sm"
+                  className="text-zinc-500 mb-2 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
                   style={{ fontFamily: '"Geist Mono", monospace' }}
                 >
                   YEAR
                 </p>
                 <p 
-                  className="text-[#fef4e4] text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
+                  className="text-[#fef4e4] text-base sm:text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
                   style={{ fontFamily: '"Geist Mono", monospace' }}
                 >
                   {year}
@@ -97,39 +99,51 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </div>
           </motion.div>
 
-          {/* Project Image with enhanced hover effects */}
-          <motion.div variants={itemVariants} className="w-full mb-32">
+          {/* Project Media with enhanced hover effects */}
+          <motion.div variants={itemVariants} className="w-full mb-16 sm:mb-20 md:mb-32">
             <div className="relative group w-full aspect-video overflow-hidden rounded-lg">
-              <motion.img
-                src={imageUrl}
-                alt={projectName}
-                className="w-full h-full object-cover transition-all duration-700
-                         group-hover:scale-[1.02] group-hover:brightness-110"
-              />
+              {videoUrl ? (
+                <video
+                  src={videoUrl}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover transition-all duration-700
+                           group-hover:scale-[1.02] group-hover:brightness-110"
+                />
+              ) : (
+                <motion.img
+                  src={imageUrl}
+                  alt={projectName}
+                  className="w-full h-full object-cover transition-all duration-700
+                           group-hover:scale-[1.02] group-hover:brightness-110"
+                />
+              )}
               <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-neutral-900/0 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
             </div>
           </motion.div>
 
           {/* Project Content with refined grid */}
-          <div className="grid grid-cols-12 gap-24 mb-32">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16 md:gap-24 mb-16 sm:mb-20 md:mb-32">
             {/* Description with enhanced typography */}
-            <motion.div variants={itemVariants} className="col-span-8">
+            <motion.div variants={itemVariants} className="col-span-1 md:col-span-8">
               <p 
-                className="text-2xl leading-relaxed text-[#fef4e4]/80 mb-16"
+                className="text-lg sm:text-xl md:text-2xl leading-relaxed text-[#fef4e4]/80 mb-8 sm:mb-12 md:mb-16"
                 style={{ fontFamily: '"Geist Mono", monospace' }}
               >
                 {projectDescription}
               </p>
 
-              <div className="flex gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 {projectLink && (
                   <Link 
                     href={projectLink}
                     target="_blank"
-                    className="group relative py-4 px-8 bg-[#fef4e4] text-neutral-900 rounded-lg 
-                             overflow-hidden transition-all duration-300
-                             text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-[#fef4e4]/10"
+                    className="group relative py-3 sm:py-4 px-6 sm:px-8 bg-[#fef4e4] text-neutral-900 rounded-lg 
+                             overflow-hidden transition-all duration-300 text-center
+                             text-xs sm:text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-[#fef4e4]/10"
                     style={{ fontFamily: '"Geist Mono", monospace' }}
                   >
                     <span className="relative z-10">View Project</span>
@@ -140,9 +154,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <Link 
                     href={githubLink}
                     target="_blank"
-                    className="group relative py-4 px-8 border border-[#fef4e4]/20 text-[#fef4e4] rounded-lg
-                             overflow-hidden transition-all duration-300
-                             text-sm uppercase tracking-wider hover:border-[#fef4e4]/40"
+                    className="group relative py-3 sm:py-4 px-6 sm:px-8 border border-[#fef4e4]/20 text-[#fef4e4] rounded-lg
+                             overflow-hidden transition-all duration-300 text-center
+                             text-xs sm:text-sm uppercase tracking-wider hover:border-[#fef4e4]/40"
                     style={{ fontFamily: '"Geist Mono", monospace' }}
                   >
                     <span className="relative z-10 group-hover:text-[#fef4e4]">Source Code</span>
@@ -153,18 +167,19 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </motion.div>
 
             {/* Technologies with hover effects */}
-            <motion.div variants={itemVariants} className="col-span-4">
+            <motion.div variants={itemVariants} className="col-span-1 md:col-span-4">
               <h3 
-                className="text-zinc-500 uppercase tracking-wider mb-8 text-sm"
+                className="text-zinc-500 uppercase tracking-wider mb-4 sm:mb-6 md:mb-8 text-xs sm:text-sm"
                 style={{ fontFamily: '"Geist Mono", monospace' }}
               >
                 Technologies
               </h3>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-wrap md:flex-col gap-3 sm:gap-4 md:gap-5">
                 {technologies.map((tech) => (
                   <span 
                     key={tech}
-                    className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 text-lg"
+                    className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 
+                             text-base sm:text-lg"
                     style={{ fontFamily: '"Geist Mono", monospace' }}
                   >
                     {tech}

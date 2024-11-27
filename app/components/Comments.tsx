@@ -68,21 +68,22 @@ const Comments = () => {
   };
 
   return (
-    <div className="p-8 space-y-16">
+    <div className="p-4 sm:p-6 md:p-8 space-y-8 sm:space-y-12">
       {!hasCommented && (
         <motion.form
           onSubmit={handleSubmit}
-          className="relative space-y-6 p-8 bg-white/[0.03] rounded-2xl border border-white/[0.05]
+          className="relative space-y-4 sm:space-y-6 p-4 sm:p-6 md:p-8 
+                   bg-white/[0.03] rounded-xl sm:rounded-2xl border border-white/[0.05]
                    backdrop-blur-xl shadow-2xl"
         >
           <h3 
-            className="text-[#fef4e4] text-xl mb-6 tracking-tight"
+            className="text-[#fef4e4] text-lg sm:text-xl mb-4 sm:mb-6 tracking-tight"
             style={{ fontFamily: '"Overused Grotesk", sans-serif' }}
           >
             Leave a Note
           </h3>
           
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div className="relative group">
               <input
                 type="text"
@@ -91,8 +92,9 @@ const Comments = () => {
                 placeholder="Your name"
                 maxLength={50}
                 required
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4
-                         text-[#fef4e4] placeholder:text-zinc-500
+                className="w-full bg-white/[0.02] border border-white/10 
+                         rounded-lg sm:rounded-xl px-4 py-3 sm:px-5 sm:py-4
+                         text-[#fef4e4] placeholder:text-zinc-500 text-sm sm:text-base
                          focus:outline-none focus:border-[#fef4e4]/20 focus:bg-white/[0.03]
                          transition-all duration-300"
                 style={{ fontFamily: '"Consolas", monospace' }}
@@ -109,8 +111,9 @@ const Comments = () => {
                 onChange={(e) => setLinkedIn(e.target.value)}
                 placeholder="Your LinkedIn URL"
                 required
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4
-                         text-[#fef4e4] placeholder:text-zinc-500
+                className="w-full bg-white/[0.02] border border-white/10 
+                         rounded-lg sm:rounded-xl px-4 py-3 sm:px-5 sm:py-4
+                         text-[#fef4e4] placeholder:text-zinc-500 text-sm sm:text-base
                          focus:outline-none focus:border-[#fef4e4]/20 focus:bg-white/[0.03]
                          transition-all duration-300"
                 style={{ fontFamily: '"Consolas", monospace' }}
@@ -128,8 +131,9 @@ const Comments = () => {
                 maxLength={500}
                 required
                 rows={4}
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4
-                         text-[#fef4e4] placeholder:text-zinc-500
+                className="w-full bg-white/[0.02] border border-white/10 
+                         rounded-lg sm:rounded-xl px-4 py-3 sm:px-5 sm:py-4
+                         text-[#fef4e4] placeholder:text-zinc-500 text-sm sm:text-base
                          focus:outline-none focus:border-[#fef4e4]/20 focus:bg-white/[0.03]
                          transition-all duration-300 resize-none"
                 style={{ fontFamily: '"Consolas", monospace' }}
@@ -141,7 +145,8 @@ const Comments = () => {
           </div>
 
           {error && (
-            <p className="text-red-400/80 text-sm" style={{ fontFamily: '"Consolas", monospace' }}>
+            <p className="text-red-400/80 text-xs sm:text-sm" 
+               style={{ fontFamily: '"Consolas", monospace' }}>
               {error}
             </p>
           )}
@@ -150,7 +155,7 @@ const Comments = () => {
             type="submit"
             disabled={isLoading}
             className="w-full bg-[#fef4e4]/[0.03] border border-[#fef4e4]/10 
-                     text-[#fef4e4] rounded-xl py-4 px-5
+                     text-[#fef4e4] rounded-lg sm:rounded-xl py-3 sm:py-4 px-4 sm:px-5
                      text-sm tracking-wide
                      hover:border-[#fef4e4]/20 hover:bg-[#fef4e4]/[0.05]
                      transition-all duration-300
@@ -165,7 +170,7 @@ const Comments = () => {
         </motion.form>
       )}
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         <AnimatePresence mode="popLayout">
           {comments.map((comment, index) => (
             <motion.div
@@ -176,18 +181,17 @@ const Comments = () => {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               className="group relative bg-white/[0.02] backdrop-blur-xl 
-                       border border-white/[0.05] rounded-2xl p-6
+                       border border-white/[0.05] rounded-xl sm:rounded-2xl 
+                       p-4 sm:p-6
                        hover:border-white/[0.1] transition-all duration-500"
             >
-              <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100
-                            bg-gradient-to-br from-[#fef4e4]/[0.07] to-transparent
-                            rounded-2xl blur-2xl transition-opacity duration-500" />
-              
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center 
+                            gap-2 sm:gap-4 mb-3 sm:mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/[0.05] border border-white/[0.08]
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/[0.05] 
+                                border border-white/[0.08]
                                 flex items-center justify-center">
-                    <span className="text-[#fef4e4]/60 text-lg">
+                    <span className="text-[#fef4e4]/60 text-base sm:text-lg">
                       {comment.name.charAt(0).toUpperCase()}
                     </span>
                   </div>
@@ -200,13 +204,14 @@ const Comments = () => {
                       className="group/link flex items-center gap-2 hover:opacity-80 transition-opacity"
                     >
                       <span 
-                        className="text-[#fef4e4] font-medium tracking-wide"
+                        className="text-[#fef4e4] font-medium tracking-wide text-sm sm:text-base"
                         style={{ fontFamily: '"Consolas", monospace' }}
                       >
                         {comment.name}
                       </span>
                       <svg 
-                        className="w-4 h-4 text-[#fef4e4] opacity-40 group-hover/link:opacity-80 transition-opacity"
+                        className="w-3 h-3 sm:w-4 sm:h-4 text-[#fef4e4] opacity-40 
+                                 group-hover/link:opacity-80 transition-opacity"
                         viewBox="0 0 24 24" 
                         fill="currentColor"
                       >
@@ -228,7 +233,8 @@ const Comments = () => {
               </div>
               
               <p 
-                className="text-[#fef4e4]/80 leading-relaxed pl-[52px]"
+                className="text-[#fef4e4]/80 leading-relaxed text-sm sm:text-base
+                         pl-11 sm:pl-[52px]"
                 style={{ fontFamily: '"Consolas", monospace' }}
               >
                 {comment.message}

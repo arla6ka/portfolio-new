@@ -33,27 +33,30 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="w-full bg-neutral-900">
-      <div className="w-full border-t border-white/[0.08]">
-        <div className="w-full flex justify-between items-center py-8">
-          {/* Left side - Name with left padding */}
+    <footer className="w-full bg-neutral-900 relative overflow-hidden">
+      {/* Ambient background effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/80 opacity-50 pointer-events-none" />
+
+      <div className="w-full border-t border-white/[0.08] relative z-10">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center py-6 sm:py-8 
+                      px-4 sm:px-8 md:px-16 gap-4 sm:gap-0">
+          {/* Left side - Name */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="pl-[70px]"
           >
             <p 
-              className="text-[#fef4e4]/60 text-sm"
+              className="text-[#fef4e4]/60 text-sm text-center sm:text-left"
               style={{ fontFamily: '"Geist Mono", monospace' }}
             >
               © 2024 Arlan Marat
             </p>
           </motion.div>
 
-          {/* Right side - Timer with right padding */}
+          {/* Right side - Timer */}
           <motion.div 
-            className="flex items-center gap-8 mr-[70px]"
+            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -67,7 +70,7 @@ export default function Footer() {
                 CALIFORNIA
               </span>
             </div>
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-center sm:items-end">
               <motion.div 
                 className="text-[#fef4e4] text-lg font-light tabular-nums"
                 style={{ fontFamily: '"Geist Mono", monospace' }}
@@ -84,6 +87,9 @@ export default function Footer() {
           </motion.div>
         </div>
       </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#fef4e4]/10 to-transparent" />
     </footer>
   );
 }

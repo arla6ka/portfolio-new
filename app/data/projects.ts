@@ -1,56 +1,79 @@
 // data/projects.ts
 export interface Project {
-    id: string;
-    slug: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    technologies: string[];
-    imageUrl: string;
-    liveUrl?: string;
-    githubUrl?: string;
-    year?: string;
-    role?: string;
-  }
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  technologies: string[];
+  imageUrl?: string;
+  videoUrl?: string;
+  height?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  year?: string;
+  role?: string;
+}
+
+export const projects: Project[] = [
+  {
+    id: '1',
+    slug: 'cardpranks',
+    title: 'CardPranks',
+    subtitle: 'Online Business Platform',
+    description: `CardPranks is a full-stack application I developed as a mini online business platform. The main idea was to create a service where people can order prank postcards to be sent to their friends or relatives. These postcards appear to be from people they don't know, making it a fun and harmless prank.
+
+    I built this project from scratch, implementing both frontend and backend functionality. The platform allows users to customize their prank postcards, manage orders, and track deliveries. It was an interesting project that combined business logic with web development.`,
+    technologies: ['Next.js', 'MongoDB', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Express'],
+    videoUrl: '/videos/cardpranks.mp4',
+    imageUrl: '/images/1.png'
+  },
+  {
+    id: '2',
+    slug: 'url-shortener',
+    title: 'Shortener',
+    subtitle: 'URL Shortener Service',
+    description: `This URL shortener is a personal project I developed to simplify link management. The application provides basic but essential functionality for creating shortened URLs. Users can input long URLs and receive shortened versions that are easier to share and manage.
+
+    The project includes features like custom URL aliases, basic analytics for link clicks, and a simple dashboard for managing shortened links. It was a great opportunity to practice full-stack development and work with URL routing.`,
+    technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'TypeScript', 'Tailwind CSS'],
+    imageUrl: '/images/2.png'
+  },
+  {
+    id: '3',
+    slug: 'grocery-shopping-helper',
+    title: 'Minerva Grocery AI',
+    subtitle: 'Grocery Shopping Assistant',
+    description: `I developed this project specifically for university students who shop at Trader Joe's, Costco, and Target. The application helps students find the most cost-effective groceries across these three stores. Users can input their shopping list, and the system automatically finds the best deals and products.
+
+    The main goal was to help students save both money and time by comparing prices and products across different stores. The application analyzes prices, product quality, and store locations to provide optimal shopping recommendations.`,
+    technologies: ['Next.js', 'MongoDB', 'Node.js', 'Express', 'TypeScript', 'Redis', 'Tailwind CSS'],
+    imageUrl: '/images/1.png'
+  },
+
+  {
+    id: '4',
+    slug: 'bazaar',
+    title: 'Bazaar AI',
+    subtitle: 'Online Shopping Assistant',
+    height: '400px',
+    description: `I developed this AI platform during the nFactorial Incubator, one of Central Asia's most selective IT bootcamps. Completed in one month, Bazaar AI is a smart shopping assistant that scrapes multiple marketplaces to find the best and most cost-effective products for users.
+
+    The platform uses AI to analyze product listings, compare prices, and provide personalized recommendations. It aggregates data from various sources to help users make informed purchasing decisions. The project demonstrates the practical application of AI in everyday shopping scenarios.`,
+    technologies: ['Next.js', 'OpenAI API', 'MongoDB', 'Node.js', 'TypeScript', 'Puppeteer', 'Tailwind CSS'],
+    imageUrl: '/images/3.png'
+  },
+  {
+    id: '5',
+    slug: 'vton',
+    title: 'AI Virtual Try-On',
+    subtitle: 'NVIDIA x Vercel Hackathon',
+    description: `This project was created during the NVIDIA x Vercel hackathon in just 2 hours. We developed a virtual try-on service that allows users to virtually try on clothes using artificial intelligence. The application integrates with Replicate's machine learning models to provide realistic clothing visualization.
+
+    The service processes user photos and selected clothing items to generate realistic previews of how the clothes would look when worn. Despite the short development time, we managed to create a functional prototype that demonstrates the potential of AI in e-commerce.`,
+    technologies: ['Next.js', 'Replicate API', 'VTON ML Model', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+    videoUrl: '/videos/vton.mp4',
+    imageUrl: '/images/1.png'
+  },
   
-  export const projects: Project[] = [
-    {
-      id: '1',
-      slug: 'vindex-project',
-      title: 'Vindex Project',
-      subtitle: 'Web Development',
-      description: `Vindex is a comprehensive web application that revolutionizes data visualization and analysis. Built with modern web technologies, it offers real-time data processing and interactive visualizations.
-  
-      The project focused on creating an intuitive user interface while maintaining high performance with large datasets. Key features include customizable dashboards, real-time collaboration, and advanced filtering capabilities.
-  
-      The application successfully reduced data analysis time by 60% and is currently used by over 1000 analysts worldwide.`,
-      technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'D3.js'],
-      imageUrl: '/images/1.png'
-    },
-    {
-      id: '2',
-      slug: 'nofilter-app',
-      title: 'NoFilter App',
-      subtitle: 'Mobile Development',
-      description: `NoFilter is a revolutionary mobile application that transforms how people interact with photo editing. The app uses AI to suggest contextual edits while maintaining the authenticity of original images.
-  
-      As the lead developer, I implemented the core editing engine and designed the real-time filter system. The app processes over 1 million photos daily with an average response time of 100ms.
-  
-      Key achievements include reducing processing time by 40% and increasing user engagement by 200%.`,
-      technologies: ['React Native', 'Python', 'TensorFlow', 'AWS', 'Redux'],
-      imageUrl: '/images/2.png'
-    },
-    {
-      id: '3',
-      slug: 'jn-platform',
-      title: 'JN Platform',
-      subtitle: 'Full Stack Development',
-      description: `JN Platform is an enterprise-level content management system that handles millions of daily transactions. The platform provides real-time analytics, automated content optimization, and advanced user management.
-  
-      I led the development of the core infrastructure and implemented the microservices architecture. The system maintains 99.99% uptime and handles peak loads of 10,000 requests per second.
-  
-      The platform has been adopted by major media companies and has processed over 5 billion content items to date.`,
-      technologies: ['Next.js', 'GraphQL', 'PostgreSQL', 'Docker', 'Kubernetes'],
-      imageUrl: '/images/3.png'
-    }
-  ];
+];

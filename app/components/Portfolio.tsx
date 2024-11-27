@@ -64,21 +64,24 @@ const Portfolio: React.FC = () => {
           initial="initial"
           animate="animate"
           style={{ fontFamily: '"Consolas", monospace', fontWeight: 400 }}
-          className="flex flex-col px-16 w-full"
+          className="flex flex-col w-full"
         >
-          <div className="mt-16 max-w-full">
-            <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1">
+          <div className="w-full px-4 sm:px-8 md:px-16 mt-6 sm:mt-[100px]">
+            <div 
+              className="columns-1 sm:columns-2 lg:columns-3 gap-6"
+              style={{
+                columnGap: '1.5rem'
+              }}
+            >
               {projects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  {...project}
-                />
+                <div key={project.id} className="mb-6 break-inside-avoid">
+                  <ProjectCard {...project} />
+                </div>
               ))}
             </div>
           </div>
         </motion.section>
 
-        {/* Call To Action Section */}
         <motion.section
           variants={contentVariants}
           initial="initial"
@@ -87,12 +90,11 @@ const Portfolio: React.FC = () => {
           <CallToAction />
         </motion.section>
 
-        {/* Footer Section */}
         <motion.section
           variants={contentVariants}
           initial="initial"
           animate="animate"
-          className="w-full"
+          className="w-full mt-10 md:mt-20"
         >
           <Footer />
           <SecretSection />

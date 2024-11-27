@@ -14,6 +14,8 @@ const ProjectPage = () => {
     return null;
   }
 
+  const imageUrl = project.imageUrl || '/images/default-project-image.png';
+
   return (
     <main className="bg-neutral-900">
       <ProjectHeader />
@@ -21,7 +23,8 @@ const ProjectPage = () => {
         projectName={project.title}
         projectDescription={project.description}
         technologies={project.technologies}
-        imageUrl={project.imageUrl}
+        imageUrl={imageUrl}
+        videoUrl={project.videoUrl}
         projectLink={project.liveUrl}
         githubLink={project.githubUrl}
         year={project.year}

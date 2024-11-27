@@ -1,11 +1,19 @@
 // components/types.ts
 // components/types.ts
 export interface ProjectProps {
-  imageUrl: string;
+  id: string;
+  slug: string;
   title: string;
   subtitle: string;
-  slug: string;  // Add this
-  aspectRatio?: number;
+  description: string;
+  technologies: string[];
+  imageUrl?: string;
+  videoUrl?: string;
+  height?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  year?: string;
+  role?: string;
 }
   
   export interface NavLinkProps {

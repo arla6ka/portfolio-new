@@ -8,7 +8,7 @@ export const GlowingDesigner = () => {
 
   return (
     <motion.div 
-      className="inline-block relative cursor-pointer mr-1"
+      className="inline-block relative cursor-pointer mr-0 sm:mr-1"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ 
@@ -24,23 +24,20 @@ export const GlowingDesigner = () => {
             second: '#fef4e4'
           }}
           sparklesCount={12}
-          className="text-[110px] text-[#fef4e4] tracking-tighter"
+          className="text-[40px] sm:text-[65px] md:text-[85px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
         />
       ) : (
         <span 
           style={{ 
             fontFamily: '"Overused Grotesk"',
             fontWeight: 500,
-            fontSize: '110px',
-            color: '#fef4e4'
           }}
-          className="tracking-tighter"
+          className="text-[40px] sm:text-[65px] md:text-[85px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
         >
           designer
         </span>
       )}
 
-      {/* Элегантное подсвечивание при наведении */}
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -101,12 +98,11 @@ export const BinaryEngineer = () => {
         style={{
           fontFamily: '"Geist Mono Medium", sans-serif',
           fontWeight: 100,
-          fontSize: '105px'
         }}
       >
         <motion.span 
           ref={ref} 
-          className="relative tracking-tighter z-10" 
+          className="relative tracking-tighter z-10 text-[38px] sm:text-[62px] md:text-[82px] lg:text-[105px]" 
           style={{ 
             color: '#fef4e4',
           }}
@@ -123,7 +119,6 @@ export const BinaryEngineer = () => {
           engineer
         </motion.span>
 
-        {/* Improved glow effect */}
         <AnimatePresence mode="wait">
           {isHovered && (
             <motion.div
@@ -171,28 +166,30 @@ const AnimatedText = () => {
   };
 
   return (
-    <motion.h1 
-      className="pr-5"
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-    >
-      <motion.span 
-        variants={lineVariants}
-        style={{ 
-          fontFamily: '"Overused Grotesk", sans-serif', 
-          fontWeight: 500 
-        }} 
-        className="inline-block w-full leading-[115px] max-w-full text-[110px] tracking-tighter"
+    <div className="flex justify-center sm:justify-start mt-[120px] md:mt-[144px] sm:ml-0">
+      <motion.div 
+        className="min-w-[400px] sm:min-w-[640px] md:min-w-[768px] mt-[60px] lg:mt- ml-[130px] lg:ml-0 lg:min-w-[1024px] sm:pr-2 md:pr-3 lg:pr-4"
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
       >
-        hello! I am Arlan <br />
-        <GlowingDesigner />{" "}
-        &amp;{" "}
-        <BinaryEngineer />
-        <br />
-        currently based in SF
-      </motion.span>
-    </motion.h1>
+        <motion.span 
+          variants={lineVariants}
+          style={{ 
+            fontFamily: '"Overused Grotesk", sans-serif', 
+            fontWeight: 500 
+          }} 
+          className="inline-block w-full leading-[45px] sm:leading-[75px] md:leading-[95px] lg:leading-[115px] 
+                     max-w-full text-[40px] sm:text-[65px] md:text-[85px] lg:text-[110px] tracking-tighter"
+        >
+          hello! I am Arlan <br />
+          <GlowingDesigner />{" "}
+          &amp;{" "}
+          <BinaryEngineer /> <br />
+          currently based in SF
+        </motion.span>
+      </motion.div>
+    </div>
   );
 };
 
