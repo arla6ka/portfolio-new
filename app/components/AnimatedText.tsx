@@ -24,7 +24,7 @@ export const GlowingDesigner = () => {
             second: '#fef4e4'
           }}
           sparklesCount={12}
-          className="text-[40px] sm:text-[65px] md:text-[85px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
+          className="text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
         />
       ) : (
         <span 
@@ -32,7 +32,7 @@ export const GlowingDesigner = () => {
             fontFamily: '"Overused Grotesk"',
             fontWeight: 500,
           }}
-          className="text-[40px] sm:text-[65px] md:text-[85px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
+          className="text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
         >
           designer
         </span>
@@ -102,7 +102,7 @@ export const BinaryEngineer = () => {
       >
         <motion.span 
           ref={ref} 
-          className="relative tracking-tighter z-10 text-[38px] sm:text-[62px] md:text-[82px] lg:text-[105px]" 
+          className="relative tracking-tighter z-10 text-[38px] sm:text-[52px] md:text-[72px] lg:text-[105px]" 
           style={{ 
             color: '#fef4e4',
           }}
@@ -166,9 +166,9 @@ const AnimatedText = () => {
   };
 
   return (
-    <div className="flex justify-center sm:justify-start mt-[120px] md:mt-[144px] sm:ml-0">
+    <div className="flex justify-start mt-[120px] mb-10 md:mb-0 md:mt-[144px]">
       <motion.div 
-        className="min-w-[400px] sm:min-w-[640px] md:min-w-[768px] mt-[60px] lg:mt- ml-[130px] lg:ml-0 lg:min-w-[1024px] sm:pr-2 md:pr-3 lg:pr-4"
+        className="w-full max-w-[2400px] px-4 sm:px-8 md:px-16"
         variants={containerVariants}
         initial="initial"
         animate="animate"
@@ -179,8 +179,10 @@ const AnimatedText = () => {
             fontFamily: '"Overused Grotesk", sans-serif', 
             fontWeight: 500 
           }} 
-          className="inline-block w-full leading-[45px] sm:leading-[75px] md:leading-[95px] lg:leading-[115px] 
-                     max-w-full text-[40px] sm:text-[65px] md:text-[85px] lg:text-[110px] tracking-tighter"
+          className="inline-block w-full 
+                     leading-[45px] sm:leading-[65px] md:leading-[85px] lg:leading-[115px] 
+                     text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] 
+                     tracking-tighter text-[#fef4e4]"
         >
           hello! I am Arlan <br />
           <GlowingDesigner />{" "}

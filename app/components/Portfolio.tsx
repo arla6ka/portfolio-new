@@ -54,7 +54,7 @@ const Portfolio: React.FC = () => {
           variants={contentVariants}
           initial="initial"
           animate="animate"
-          className="self-start pr-44 pl-[60px] mt-[120px] font-medium text-orange-50 leading-[156px] text-[56px] max-md:max-w-full max-md:text-4xl max-md:leading-10 max-sm:mt-14 max-sm:mb-14"
+          className="w-full"
         >
           <AnimatedText />
         </motion.section>

@@ -94,9 +94,6 @@ const CallToAction = () => {
             </AnchorUnderline>
           </motion.div>
 
-          {/* Decorative corner accents with adjusted opacity */}
-          <div className="absolute top-8 left-8 w-24 h-24 border-l-2 border-t-2 border-[#fef4e4]/5 rounded-tl-xl" />
-          <div className="absolute bottom-8 right-8 w-24 h-24 border-r-2 border-b-2 border-[#fef4e4]/5 rounded-br-xl" />
         </motion.div>
       </WobbleCard>
     </section>
