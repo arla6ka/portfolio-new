@@ -6,6 +6,25 @@ import Footer from '@/app/components/Footer';
 export const metadata: Metadata = {
   title: "Arlan @Design Engineer",
   description: "Personal website",
+  openGraph: {
+    title: 'Arlan @Design Engineer',
+    description: 'Personal website',
+    url: 'https://arlan.me',
+    siteName: 'Arlan Portfolio',
+    images: [
+      {
+        url: '/123.png', // Путь к картинке для превью
+        width: 1200,
+        height: 630,
+        alt: 'Hello'
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  }
 };
 
 export default function RootLayout({
