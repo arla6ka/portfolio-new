@@ -1,29 +1,27 @@
 "use client";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Comments from './Comments';
 
 const SecretSection = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const commentsRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-    
-    // Если открываем секцию, прокручиваем к ней
-    if (!isOpen) {
-      // Небольшая задержка, чтобы анимация открытия успела начаться
-      setTimeout(() => {
-        commentsRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
+  useEffect(() => {
+    if (isOpen && sectionRef.current) {
+      // Плавная прокрутка к секции
+      const yOffset = -100; // Отступ сверху (можно настроить)
+      const y = sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
     }
-  };
+  }, [isOpen]);
 
   return (
-    <div className="w-full py-20">
+    <div ref={sectionRef} className="w-full py-20">
       <motion.div 
         className="text-center"
         initial={{ opacity: 0 }}
@@ -31,7 +29,7 @@ const SecretSection = () => {
         viewport={{ once: true }}
       >
         <motion.button
-          onClick={handleClick}
+          onClick={() => setIsOpen(!isOpen)}
           className="group relative inline-flex items-center gap-2 px-4 py-2"
           whileHover="hover"
         >
@@ -85,7 +83,6 @@ const SecretSection = () => {
             className="overflow-hidden"
           >
             <motion.div
-              ref={commentsRef}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
