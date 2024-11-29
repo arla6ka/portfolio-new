@@ -24,10 +24,10 @@ const ProjectCard: React.FC<ProjectProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <h2 className="text-sm tracking-wider uppercase text-[#fef4e4] mb-2 font-mono">
+        <h2 className="font-geist-mono text-sm tracking-wider uppercase text-[#fef4e4] mb-2">
           {title}
         </h2>
-        <span className="text-sm tracking-wider uppercase text-[#fef4e4]/40 font-mono">
+        <span className="font-geist-mono text-sm tracking-wider uppercase text-[#fef4e4]/40">
           {subtitle}
         </span>
       </motion.div>
@@ -68,41 +68,59 @@ const ProjectCard: React.FC<ProjectProps> = ({
             )}
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/40 to-transparent
-                       opacity-0 group-hover:opacity-100 transition-all duration-500
-                       backdrop-blur-[1px]">
+          <div className="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent" />
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/60 to-transparent 
+                          opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out" />
+            
+            <div className="absolute inset-0 bg-neutral-900/95 opacity-0 group-hover:opacity-40 
+                          transition-opacity duration-700 ease-in-out" />
+
             {technologies.length > 0 && (
-              <div className="absolute bottom-0 left-0 right-0 p-7">
+              <div className="absolute bottom-0 left-0 right-0 p-7 z-10">
                 <div className="flex flex-wrap gap-2.5 translate-y-[20px] opacity-0 
                              group-hover:translate-y-0 group-hover:opacity-100
                              transition-all duration-500 ease-out delay-[50ms]">
                   {technologies.map((tech, index) => (
                     <span
                       key={`${id}-${tech}-${index}`}
-                      className="px-4 py-1.5 bg-[#fef4e4]/[0.08] backdrop-blur-[8px] rounded-lg
-                               text-[#fef4e4] text-xs tracking-wider font-mono
-                               border border-[#fef4e4]/10 group-hover:border-[#fef4e4]/20
-                               shadow-lg shadow-black/20"
+                      className="font-geist-mono relative overflow-hidden px-4 py-1.5 
+                               rounded-lg text-[#fef4e4] text-xs tracking-wider
+                               shadow-lg shadow-black/20 border border-[#fef4e4]/10
+                               hover:border-[#fef4e4]/20 group/tag
+                               transform hover:-translate-y-[2px] hover:scale-105
+                               transition-all duration-300 ease-out"
                     >
-                      {tech}
+                      <div className="absolute inset-0 -z-10 bg-neutral-900/80 backdrop-blur-[8px]" />
+                      <div className="absolute inset-0 -z-10 opacity-0 group-hover/tag:opacity-100
+                                   transition-opacity duration-300
+                                   bg-gradient-to-r from-[#fef4e4]/[0.08] via-[#fef4e4]/[0.04] to-[#fef4e4]/[0.08]" />
+                      <span className="relative z-10">
+                        {tech}
+                      </span>
                     </span>
                   ))}
                 </div>
               </div>
             )}
 
-            <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 
+            <div className="absolute top-5 right-5 z-10 opacity-0 group-hover:opacity-100 
                          transition-all duration-500 translate-x-2 group-hover:translate-x-0
                          delay-[50ms]">
-              <div className="bg-[#fef4e4]/[0.08] backdrop-blur-[8px] rounded-xl w-10 h-10 
-                          flex items-center justify-center border border-[#fef4e4]/10
-                          shadow-lg shadow-black/20">
+              <div className="relative overflow-hidden bg-neutral-900/95 backdrop-blur-[8px] 
+                            rounded-xl w-10 h-10 flex items-center justify-center 
+                            border border-[#fef4e4]/10 shadow-lg shadow-black/20
+                            group-hover:border-[#fef4e4]/20 transition-all duration-500
+                            hover:bg-neutral-900">
                 <svg 
                   width="20" 
                   height="20" 
                   viewBox="0 0 24 24" 
                   fill="none" 
-                  className="text-[#fef4e4] rotate-45 group-hover:rotate-0 transition-all duration-300"
+                  className="text-[#fef4e4]/60 transform rotate-45 
+                           group-hover:rotate-0 group-hover:scale-110 group-hover:text-[#fef4e4]
+                           transition-all duration-500 ease-out"
                 >
                   <path 
                     d="M7 17L17 7M17 7V15M17 7H9" 
@@ -118,12 +136,10 @@ const ProjectCard: React.FC<ProjectProps> = ({
         </div>
 
         <div className="p-7 bg-gradient-to-b from-transparent to-neutral-900/30">
-          <h2 className="text-sm tracking-wider uppercase text-[#fef4e4] mb-2 font-mono
-                      transition-colors duration-300 group-hover:text-[#fef4e4]">
+          <h2 className="font-geist-mono text-sm tracking-wider uppercase text-[#fef4e4] mb-2">
             {title}
           </h2>
-          <span className="text-sm tracking-wider uppercase text-[#fef4e4]/40 font-mono
-                        transition-colors duration-300 group-hover:text-[#fef4e4]/60">
+          <span className="font-geist-mono text-sm tracking-wider uppercase text-[#fef4e4]/40">
             {subtitle}
           </span>
         </div>

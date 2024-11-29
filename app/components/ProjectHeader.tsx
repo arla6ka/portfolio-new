@@ -27,7 +27,7 @@ const ProjectHeader: React.FC = () => {
           whileHover="hover"
         >
           <motion.span
-            className="text-[#fef4e4]/60 mb-[2px] text-[12px] sm:text-[14px] md:text-[16px]"
+            className="font-geist-mono text-[#fef4e4]/60 mb-[2px] text-[12px] sm:text-[14px] md:text-[16px]"
             variants={{
               hover: {
                 x: -4,
@@ -37,7 +37,7 @@ const ProjectHeader: React.FC = () => {
           >
             ←
           </motion.span>
-          <span className="text-[#fef4e4] group-hover:text-[#fef4e4]/90 transition-colors duration-300">
+          <span className="font-geist-mono text-[#fef4e4] group-hover:text-[#fef4e4]/90 transition-colors duration-300">
             Go Back
           </span>
           
@@ -55,7 +55,7 @@ const ProjectHeader: React.FC = () => {
           <AnchorUnderline 
             href="/resume"
             speed={0.6} 
-            className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 cursor-pointer"
+            className="font-overused font-medium text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 cursor-pointer"
           >
             Resume
           </AnchorUnderline>
@@ -63,7 +63,7 @@ const ProjectHeader: React.FC = () => {
             href="https://www.linkedin.com/in/arlanmarat/"
             target="_blank"
             speed={0.6} 
-            className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 cursor-pointer"
+            className="font-overused font-medium text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 cursor-pointer"
           >
             Linkedin
           </AnchorUnderline>

@@ -47,8 +47,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p 
-              className="text-[#fef4e4]/60 text-sm text-center sm:text-left"
-              style={{ fontFamily: '"Geist Mono", monospace' }}
+              className="font-geist-mono text-[#fef4e4]/60 text-sm text-center sm:text-left"
             >
               © 2024 Arlan Marat
             </p>
@@ -64,22 +63,19 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
               <span 
-                className="text-[#fef4e4]/40 text-sm uppercase tracking-wider"
-                style={{ fontFamily: '"Geist Mono", monospace' }}
+                className="font-geist-mono text-[#fef4e4]/40 text-sm uppercase tracking-wider"
               >
                 CALIFORNIA
               </span>
             </div>
             <div className="flex flex-col items-center sm:items-end">
               <motion.div 
-                className="text-[#fef4e4] text-lg font-light tabular-nums"
-                style={{ fontFamily: '"Geist Mono", monospace' }}
+                className="font-geist-mono text-[#fef4e4] text-lg font-light tabular-nums"
               >
                 {time}
               </motion.div>
               <motion.div 
-                className="text-[#fef4e4]/40 text-xs uppercase tracking-wider"
-                style={{ fontFamily: '"Geist Mono", monospace' }}
+                className="font-geist-mono text-[#fef4e4]/40 text-xs uppercase tracking-wider"
               >
                 {date}
               </motion.div>

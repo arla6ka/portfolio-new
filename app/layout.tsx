@@ -16,7 +16,13 @@ export default function RootLayout({
   return (
     <html 
       lang="en" 
-      className={`bg-neutral-900 ${geistSans.variable} ${geistMono.variable} ${consolas.variable} ${overusedGrotesk.variable}`}
+      className={`
+        bg-neutral-900 
+        ${geistSans.variable} 
+        ${geistMono.variable} 
+        ${consolas.variable} 
+        ${overusedGrotesk.variable}
+      `}
     >
       <body className="min-h-screen antialiased">
         <div className="relative flex flex-col min-h-screen">

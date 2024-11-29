@@ -4,6 +4,8 @@ import { useParams } from 'next/navigation';
 import ProjectHeader from '@/app/components/ProjectHeader';
 import ProjectDetails from '@/app/components/ProjectDetails';
 import { projects } from '@/app/data/projects';
+import { motion } from 'framer-motion';
+import Footer from '@/app/components/Footer';
 
 const ProjectPage = () => {
   const params = useParams();
@@ -30,11 +32,13 @@ const ProjectPage = () => {
         year={project.year}
         role={project.role}
       />
-      <footer className="w-full bg-neutral-900 px-4 sm:px-8 md:px-16">
-        <div className="max-w-7xl mx-auto py-12">
-          {/* Содержимое футера */}
-        </div>
-      </footer>
+      <motion.section
+          initial="initial"
+          animate="animate"
+          className="w-full mt-10 md:mt-20"
+        >
+          <Footer />
+        </motion.section>
     </main>
   );
 };

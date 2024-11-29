@@ -37,9 +37,9 @@ const CallToAction = () => {
           />
 
           <motion.h2 
-            className="text-[48px] sm:text-[72px] md:text-[110px] leading-tight tracking-tighter text-[#fef4e4] mb-8
-                     relative z-10 bg-clip-text text-transparent bg-gradient-to-b from-[#fef4e4] to-[#fef4e4]/80"
-            style={{ fontFamily: '"Overused Grotesk", sans-serif', fontWeight: 500 }}
+            className="font-overused font-medium text-[48px] sm:text-[72px] md:text-[110px] leading-tight 
+                     tracking-tighter text-[#fef4e4] mb-8 relative z-10 
+                     bg-clip-text text-transparent bg-gradient-to-b from-[#fef4e4] to-[#fef4e4]/80"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -49,8 +49,7 @@ const CallToAction = () => {
           </motion.h2>
           
           <motion.p 
-            className="max-w-2xl text-l md:text-xl text-[#fef4e4]/60 mb-12 relative z-10"
-            style={{ fontFamily: '"Geist Mono", monospace' }}
+            className="font-geist-mono max-w-2xl text-l md:text-xl text-[#fef4e4]/60 mb-12 relative z-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -69,10 +68,9 @@ const CallToAction = () => {
           >
             <motion.a
               href="mailto:arlan.marat@uni.minerva.edu"
-              className="group relative py-3 px-6 bg-[#fef4e4] text-neutral-900 rounded-lg
+              className="font-geist-mono group relative py-3 px-6 bg-[#fef4e4] text-neutral-900 rounded-lg
                        overflow-hidden transition-all duration-300
                        text-sm uppercase tracking-wider shadow-lg shadow-white/5"
-              style={{ fontFamily: '"Geist Mono", monospace' }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -84,8 +82,7 @@ const CallToAction = () => {
             <AnchorUnderline 
               href="/resume"
               speed={0.6}
-              className="text-[#fef4e4] text-sm uppercase tracking-wider group relative"
-              style={{ fontFamily: '"Geist Mono", monospace' }}
+              className="font-geist-mono text-[#fef4e4] text-sm uppercase tracking-wider group relative"
             >
               <span className="group-hover:text-transparent bg-clip-text bg-gradient-to-r 
                            from-[#fef4e4] to-[#fef4e4]/80 transition-all duration-300">

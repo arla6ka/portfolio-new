@@ -55,14 +55,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="w-full pt-20 sm:pt-24 md:pt-32"
+        className="w-full pt-20 mb-[-40px] md:mb-[-100px] sm:pt-24 md:pt-32"
       >
         <div className="px-5 sm:px-8 md:px-16">
           {/* Project Title Section */}
           <motion.div variants={itemVariants} className="mb-16 sm:mb-20 md:mb-32">
             <h1 
-              className="text-[42px] sm:text-[72px] md:text-[130px] text-[#fef4e4] leading-[1.1] tracking-[-0.02em] mb-10 sm:mb-16 md:mb-20"
-              style={{ fontFamily: '"Overused Grotesk", sans-serif', fontWeight: 500 }}
+              className="font-overused font-medium text-[42px] sm:text-[72px] md:text-[130px] text-[#fef4e4] leading-[1.1] tracking-[-0.02em] mb-10 sm:mb-16 md:mb-20"
             >
               {projectName}
             </h1>
@@ -70,28 +69,24 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 md:gap-32">
               <div className="group">
                 <p 
-                  className="text-zinc-500 mb-2 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
-                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                  className="font-geist-mono text-zinc-500 mb-2 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
                 >
                   ROLE
                 </p>
                 <p 
-                  className="text-[#fef4e4] text-base sm:text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
-                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                  className="font-geist-mono text-[#fef4e4] text-base sm:text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
                 >
                   {role}
                 </p>
               </div>
               <div className="group">
                 <p 
-                  className="text-zinc-500 mb-2 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
-                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                  className="font-geist-mono text-zinc-500 mb-2 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
                 >
                   YEAR
                 </p>
                 <p 
-                  className="text-[#fef4e4] text-base sm:text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
-                  style={{ fontFamily: '"Geist Mono", monospace' }}
+                  className="font-geist-mono text-[#fef4e4] text-base sm:text-lg group-hover:text-[#fef4e4]/80 transition-colors duration-300"
                 >
                   {year}
                 </p>
@@ -130,8 +125,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             {/* Description with enhanced typography */}
             <motion.div variants={itemVariants} className="col-span-1 md:col-span-8">
               <p 
-                className="text-lg sm:text-xl md:text-2xl leading-relaxed text-[#fef4e4]/80 mb-8 sm:mb-12 md:mb-16"
-                style={{ fontFamily: '"Geist Mono", monospace' }}
+                className="font-geist-mono text-lg sm:text-xl md:text-2xl leading-relaxed text-[#fef4e4]/80 mb-8 sm:mb-12 md:mb-16"
               >
                 {projectDescription}
               </p>
@@ -141,10 +135,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <Link 
                     href={projectLink}
                     target="_blank"
-                    className="group relative py-3 sm:py-4 px-6 sm:px-8 bg-[#fef4e4] text-neutral-900 rounded-lg 
+                    className="font-geist-mono group relative py-3 sm:py-4 px-6 sm:px-8 bg-[#fef4e4] text-neutral-900 rounded-lg 
                              overflow-hidden transition-all duration-300 text-center
                              text-xs sm:text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-[#fef4e4]/10"
-                    style={{ fontFamily: '"Geist Mono", monospace' }}
                   >
                     <span className="relative z-10">View Project</span>
                     <div className="absolute inset-0 bg-[#fef4e4]/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -154,10 +147,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <Link 
                     href={githubLink}
                     target="_blank"
-                    className="group relative py-3 sm:py-4 px-6 sm:px-8 border border-[#fef4e4]/20 text-[#fef4e4] rounded-lg
+                    className="font-geist-mono group relative py-3 sm:py-4 px-6 sm:px-8 border border-[#fef4e4]/20 text-[#fef4e4] rounded-lg
                              overflow-hidden transition-all duration-300 text-center
                              text-xs sm:text-sm uppercase tracking-wider hover:border-[#fef4e4]/40"
-                    style={{ fontFamily: '"Geist Mono", monospace' }}
                   >
                     <span className="relative z-10 group-hover:text-[#fef4e4]">Source Code</span>
                     <div className="absolute inset-0 bg-[#fef4e4]/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -169,8 +161,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             {/* Technologies with hover effects */}
             <motion.div variants={itemVariants} className="col-span-1 md:col-span-4">
               <h3 
-                className="text-zinc-500 uppercase tracking-wider mb-4 sm:mb-6 md:mb-8 text-xs sm:text-sm"
-                style={{ fontFamily: '"Geist Mono", monospace' }}
+                className="font-geist-mono text-zinc-500 uppercase tracking-wider mb-4 sm:mb-6 md:mb-8 text-xs sm:text-sm"
               >
                 Technologies
               </h3>
@@ -178,9 +169,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                 {technologies.map((tech) => (
                   <span 
                     key={tech}
-                    className="text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 
+                    className="font-geist-mono text-[#fef4e4]/80 hover:text-[#fef4e4] transition-colors duration-300 
                              text-base sm:text-lg"
-                    style={{ fontFamily: '"Geist Mono", monospace' }}
                   >
                     {tech}
                   </span>

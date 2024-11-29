@@ -60,6 +60,9 @@ export default {
   			sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
   			mono: ['var(--font-geist-mono)', 'var(--font-consolas)', 'monospace'],
   			overused: ['var(--font-overused)', 'system-ui', 'sans-serif'],
+  			'geist': ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+  			'geist-mono': ['var(--font-geist-mono)', 'monospace'],
+  			'consolas': ['var(--font-consolas)', 'monospace'],
   		},
   	}
   },

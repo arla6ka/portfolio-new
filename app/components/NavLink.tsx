@@ -90,7 +90,7 @@ export const AnchorUnderline: React.FC<AnchorUnderlineProps> = ({
       ref={elRef}
       href={href}
       target={target}
-      className={`${styles.anchor_text} ${className}`}
+      className={`${styles.anchor_text} font-geist-mono ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
@@ -112,7 +112,7 @@ export const AnimatedNavLink: React.FC<NavLinkProps> = ({ label, href, target })
     <AnchorUnderline 
       href={href}
       target={target}
-      className="text-[#fef4e4] cursor-pointer"
+      className="font-geist-mono text-[#fef4e4] cursor-pointer"
     >
       {label}
     </AnchorUnderline>

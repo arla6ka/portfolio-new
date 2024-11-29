@@ -60,8 +60,7 @@ const SecretButton = () => {
                 <div className="sticky top-0 z-10 bg-gradient-to-b from-neutral-900/95 to-neutral-900/0 pb-8">
                   <div className="flex justify-between items-center p-6">
                     <h2 
-                      className="text-[#fef4e4] text-xl tracking-tight"
-                      style={{ fontFamily: '"Overused Grotesk", sans-serif' }}
+                      className="font-overused text-[#fef4e4] text-xl tracking-tight"
                     >
                       Secret Notes
                     </h2>

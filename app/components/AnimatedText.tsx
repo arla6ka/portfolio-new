@@ -28,11 +28,7 @@ export const GlowingDesigner = () => {
         />
       ) : (
         <span 
-          style={{ 
-            fontFamily: '"Overused Grotesk"',
-            fontWeight: 500,
-          }}
-          className="text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
+          className="font-overused font-medium text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
         >
           designer
         </span>
@@ -94,15 +90,11 @@ export const BinaryEngineer = () => {
       }}
     >
       <motion.div
-        className="relative"
-        style={{
-          fontFamily: '"Geist Mono Medium", sans-serif',
-          fontWeight: 100,
-        }}
+        className="font-geist-mono font-medium tracking-[-0.09em] relative"
       >
         <motion.span 
           ref={ref} 
-          className="relative tracking-tighter z-10 text-[38px] sm:text-[52px] md:text-[72px] lg:text-[105px]" 
+          className="relative z-10 text-[38px] sm:text-[52px] md:text-[72px] lg:text-[105px]" 
           style={{ 
             color: '#fef4e4',
           }}
@@ -175,11 +167,7 @@ const AnimatedText = () => {
       >
         <motion.span 
           variants={lineVariants}
-          style={{ 
-            fontFamily: '"Overused Grotesk", sans-serif', 
-            fontWeight: 500 
-          }} 
-          className="inline-block w-full 
+          className="font-overused font-medium inline-block w-full 
                      leading-[45px] sm:leading-[65px] md:leading-[85px] lg:leading-[115px] 
                      text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] 
                      tracking-tighter text-[#fef4e4]"

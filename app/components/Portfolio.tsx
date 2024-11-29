@@ -63,8 +63,7 @@ const Portfolio: React.FC = () => {
           variants={contentVariants}
           initial="initial"
           animate="animate"
-          style={{ fontFamily: '"Consolas", monospace', fontWeight: 400 }}
-          className="flex flex-col w-full"
+          className="font-consolas font-normal flex flex-col w-full"
         >
           <div className="w-full px-4 sm:px-8 md:px-16 mt-6 sm:mt-[100px]">
             <div 

@@ -1,10 +1,26 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Comments from './Comments';
 
 const SecretSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const commentsRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    
+    // Если открываем секцию, прокручиваем к ней
+    if (!isOpen) {
+      // Небольшая задержка, чтобы анимация открытия успела начаться
+      setTimeout(() => {
+        commentsRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  };
 
   return (
     <div className="w-full py-20">
@@ -15,19 +31,17 @@ const SecretSection = () => {
         viewport={{ once: true }}
       >
         <motion.button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleClick}
           className="group relative inline-flex items-center gap-2 px-4 py-2"
           whileHover="hover"
         >
           <motion.span 
-            className="relative z-10 text-[#fef4e4]/40 text-sm tracking-wider
+            className="font-consolas relative z-10 text-[#fef4e4]/40 text-sm tracking-wider
                      group-hover:text-[#fef4e4]/60 transition-colors duration-500"
-            style={{ fontFamily: '"Consolas", monospace' }}
           >
             Secret Section
           </motion.span>
           
-          {/* Анимированная подчеркивающая линия */}
           <motion.div
             className="absolute bottom-0 left-0 h-px w-full bg-[#fef4e4]/20"
             variants={{
@@ -40,7 +54,6 @@ const SecretSection = () => {
             transition={{ duration: 0.5 }}
           />
           
-          {/* Иконка */}
           <motion.svg
             width="16"
             height="16"
@@ -72,6 +85,7 @@ const SecretSection = () => {
             className="overflow-hidden"
           >
             <motion.div
+              ref={commentsRef}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}

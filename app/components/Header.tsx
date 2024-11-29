@@ -21,8 +21,7 @@ const Header = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span 
-            className="text-[#fef4e4] relative whitespace-nowrap"
-            style={{ fontFamily: '"Overused Grotesk", sans-serif', fontWeight: 400 }}
+            className="font-overused font-normal text-[#fef4e4] relative whitespace-nowrap"
           >
             Arlan
             <motion.div 
@@ -32,8 +31,7 @@ const Header = () => {
             />
           </span>
           <span 
-            className="text-[#fef4e4]/60 relative pl-2 sm:pl-3 border-l border-zinc-500/30 text-[12px] sm:text-[14px] md:text-[16px]"
-            style={{ fontFamily: '"Geist Mono", monospace' }}
+            className="font-geist-mono text-[#fef4e4]/60 relative pl-2 sm:pl-3 border-l border-zinc-500/30 text-[12px] sm:text-[14px] md:text-[16px]"
           >
             @Design Engineer
           </span>
@@ -51,7 +49,7 @@ const Header = () => {
           <AnchorUnderline 
             href="/resume"
             speed={0.6}
-            className="text-[#fef4e4] hover:text-[#fef4e4]/90 transition-colors duration-300"
+            className="font-overused font-medium text-[#fef4e4] hover:text-[#fef4e4]/90 transition-colors duration-300"
           >
             Resume
           </AnchorUnderline>
@@ -59,7 +57,7 @@ const Header = () => {
             href="https://www.linkedin.com/in/arlanmarat/"
             target="_blank"
             speed={0.6}
-            className="text-[#fef4e4] hover:text-[#fef4e4]/90 transition-colors duration-300"
+            className="font-overused font-medium text-[#fef4e4] hover:text-[#fef4e4]/90 transition-colors duration-300"
           >
             Linkedin
           </AnchorUnderline>
