@@ -71,12 +71,11 @@ const SparklesText: React.FC<SparklesTextProps> = ({
 
   return (
     <div
-      className={cn("font-[500]", className)}
+      className={cn("font-overused", className)}
       {...props}
       style={{
         "--sparkles-first-color": `${colors.first}`,
         "--sparkles-second-color": `${colors.second}`,
-        fontFamily: '"Overused Grotesk"',
       } as CSSProperties}
     >
       <span className="relative inline-block">
