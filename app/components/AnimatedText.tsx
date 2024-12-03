@@ -24,7 +24,7 @@ export const GlowingDesigner = () => {
             second: '#fef4e4'
           }}
           sparklesCount={12}
-          className="text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
+          className="font-overused text-[40px] sm:text-[55px] md:text-[75px] lg:text-[110px] text-[#fef4e4] tracking-tighter"
         />
       ) : (
         <span 
