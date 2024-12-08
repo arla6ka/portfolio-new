@@ -38,18 +38,20 @@ export const projects: Project[] = [
     The project includes features like custom URL aliases, basic analytics for link clicks, and a simple dashboard for managing shortened links. It was a great opportunity to practice full-stack development and work with URL routing.`,
     technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'TypeScript', 'Tailwind CSS'],
     imageUrl: '/images/2.png'
-  },
+  }
+  ,
+
   {
     id: '3',
-    slug: 'grocery-shopping-helper',
-    title: 'Minerva Grocery AI',
-    subtitle: 'Grocery Shopping Assistant',
-    description: `I developed this project specifically for university students who shop at Trader Joe's, Costco, and Target. The application helps students find the most cost-effective groceries across these three stores. Users can input their shopping list, and the system automatically finds the best deals and products.
-
-    The main goal was to help students save both money and time by comparing prices and products across different stores. The application analyzes prices, product quality, and store locations to provide optimal shopping recommendations.`,
-    technologies: ['Next.js', 'MongoDB', 'Node.js', 'Express', 'TypeScript', 'Redis', 'Tailwind CSS'],
+    slug: 'admit',
+    title: 'Admitium University Admissions',
+    subtitle: 'Landing Page x AI',
+    description: `This project was created for a client who needed a landing page for their university admissions service. The client was very happy with the results and the project was completed in just 1 day.`,
+    technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Express', 'Clerk' , 'EdgeDB' , 'OpenAI API'],
+    videoUrl: '/videos/admit.mp4',
     imageUrl: '/images/1.png'
   },
+  
 
   {
     id: '4',
@@ -73,6 +75,17 @@ export const projects: Project[] = [
     The service processes user photos and selected clothing items to generate realistic previews of how the clothes would look when worn. Despite the short development time, we managed to create a functional prototype that demonstrates the potential of AI in e-commerce.`,
     technologies: ['Next.js', 'Replicate API', 'VTON ML Model', 'TypeScript', 'Tailwind CSS', 'Node.js'],
     videoUrl: '/videos/vton.mp4',
+    imageUrl: '/images/1.png'
+  },
+  {
+    id: '6',
+    slug: 'grocery-shopping-helper',
+    title: 'Minerva Grocery AI',
+    subtitle: 'Grocery Shopping Assistant',
+    description: `I developed this project specifically for university students who shop at Trader Joe's, Costco, and Target. The application helps students find the most cost-effective groceries across these three stores. Users can input their shopping list, and the system automatically finds the best deals and products.
+
+    The main goal was to help students save both money and time by comparing prices and products across different stores. The application analyzes prices, product quality, and store locations to provide optimal shopping recommendations.`,
+    technologies: ['Next.js', 'MongoDB', 'Node.js', 'Express', 'TypeScript', 'Redis', 'Tailwind CSS'],
     imageUrl: '/images/1.png'
   },
   
